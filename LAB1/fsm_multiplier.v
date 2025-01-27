@@ -5,7 +5,7 @@ module fsm_multiplier (MAX10_CLK1_50, KEY, SW, state, product, HEX0, HEX1, HEX2,
     input [9:0] SW;               							
     output reg [3:0] state;
     output reg [15:0] product;
-	 output reg [7:0] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5;
+	output reg [7:0] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5;
     output reg [9:0] LEDR;           						
 
 
