@@ -61,7 +61,10 @@ module fsm_multiplier (
         next_mul_result = mul_result;
         next_mode_counter = mode_counter;
         LEDR = 10'b0;
-
+			
+			$display("Time: %t, state: %b, KEY[0]: %b, KEY[1]: %b, debounced_key0: %b, debounced_key1: %b", 
+             $time, state, KEY[0], KEY[1], debounced_key0, debounced_key1);
+			
         case (state)
             IDLE: begin
                 LEDR[5:0] = 6'b000001;
@@ -143,6 +146,7 @@ module fsm_multiplier (
     // Sequential logic
     always_ff @(posedge MAX10_CLK1_50 or negedge KEY[1]) begin
 		if (!KEY[1]) begin 
+			$display("always_ff block has been called with KEY[1] being TRUE!");
 		      state <= IDLE;
             num1 <= 16'b0;
             num2 <= 10'b0;
@@ -154,6 +158,7 @@ module fsm_multiplier (
 					mode_counter <= mode_counter - 1;
 				end
 		end else begin
+		$display("always_ff block has been called with KEY[1] being FALSE!");
         state <= next_state;
         num1 <= next_num1;
         num2 <= next_num2;
@@ -215,7 +220,7 @@ module debounce (
     input btn_in, // Now expects active-high input (after inversion)
     output reg btn_out
 );
-    reg [19:0] counter;
+    reg [2:0] counter;
     reg [3:0] sync_reg;
 
     always @(posedge clk) begin
@@ -223,6 +228,25 @@ module debounce (
         if (sync_reg[3] ^ sync_reg[2]) // Reset counter on input change
             counter <= 0;
         else if (counter < 20'hFFFFF) // ~1ms debounce at 50MHz
+            counter <= counter + 1;
+        else
+            btn_out <= sync_reg[3]; // Stable output
+    end
+endmodule
+
+module debounce_tb (
+    input clk,
+    input btn_in, // Now expects active-high input (after inversion)
+    output reg btn_out
+);
+    reg [2:0] counter;
+    reg [3:0] sync_reg;
+
+    always @(posedge clk) begin
+        sync_reg <= {sync_reg[2:0], btn_in}; // Synchronize input
+        if (sync_reg[3] ^ sync_reg[2]) // Reset counter on input change
+            counter <= 0;
+        else if (counter < 2'b11) 
             counter <= counter + 1;
         else
             btn_out <= sync_reg[3]; // Stable output
