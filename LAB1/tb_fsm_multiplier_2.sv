@@ -12,7 +12,7 @@ module tb_fsm_multiplier_2;
     wire [9:0] LEDR;
 
     // Instantiate the fsm_multiplier module
-    fsm_multiplier uut (
+    fsm_multiplier_sim uut (
         .MAX10_CLK1_50(MAX10_CLK1_50),
         .KEY(KEY),
         .SW(SW),
@@ -26,25 +26,6 @@ module tb_fsm_multiplier_2;
         .HEX5(HEX5),
         .LEDR(LEDR)
     );
-	
-    wire debounced_key0, debounced_key1;
-
-    debounce_tb debounce_key0_inst (
-        .clk(MAX10_CLK1_50),
-        .btn_in(KEY[0]),  // Active-low input
-        .btn_out(debounced_key0)
-    );
-
-    debounce_tb debounce_key1_inst (
-        .clk(MAX10_CLK1_50),
-        .btn_in(KEY[1]),  // Active-low input
-        .btn_out(debounced_key1)
-    );
-	 
-	 // Override the debounce signals in the DUT with the debounced values
-    assign uut.debounced_key0 = debounced_key0;
-    assign uut.debounced_key1 = debounced_key1;
-
 	 
     // Clock generation
     initial begin

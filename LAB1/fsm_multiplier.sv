@@ -220,7 +220,7 @@ module debounce (
     input btn_in, // Now expects active-high input (after inversion)
     output reg btn_out
 );
-    reg [2:0] counter;
+    reg [15:0] counter;
     reg [3:0] sync_reg;
 
     always @(posedge clk) begin
@@ -228,25 +228,6 @@ module debounce (
         if (sync_reg[3] ^ sync_reg[2]) // Reset counter on input change
             counter <= 0;
         else if (counter < 20'hFFFFF) // ~1ms debounce at 50MHz
-            counter <= counter + 1;
-        else
-            btn_out <= sync_reg[3]; // Stable output
-    end
-endmodule
-
-module debounce_tb (
-    input clk,
-    input btn_in, // Now expects active-high input (after inversion)
-    output reg btn_out
-);
-    reg [2:0] counter;
-    reg [3:0] sync_reg;
-
-    always @(posedge clk) begin
-        sync_reg <= {sync_reg[2:0], btn_in}; // Synchronize input
-        if (sync_reg[3] ^ sync_reg[2]) // Reset counter on input change
-            counter <= 0;
-        else if (counter < 2'b11) 
             counter <= counter + 1;
         else
             btn_out <= sync_reg[3]; // Stable output
