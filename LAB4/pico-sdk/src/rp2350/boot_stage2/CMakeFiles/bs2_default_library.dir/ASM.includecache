@@ -1,0 +1,10 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/kylewilliamson/Library/Mobile Documents/com~apple~CloudDocs/Documents/York University/Winter Term 2025/EECS 3216/EECS 3216 Labs/LAB4/pico-sdk/src/rp2350/boot_stage2/bs2_default_padded_checksummed.S
+
