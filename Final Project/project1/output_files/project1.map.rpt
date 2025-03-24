@@ -1,0 +1,1043 @@
+Analysis & Synthesis report for project1
+Fri Nov 29 11:20:50 2024
+Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Registers Removed During Synthesis
+  9. General Register Statistics
+ 10. Inverted Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Parameter Settings for User Entity Instance: vga_pll:u1|altpll:altpll_component
+ 13. Parameter Settings for User Entity Instance: video_sync_generator:vga_sync_inst
+ 14. Parameter Settings for User Entity Instance: gridalizer:grid_inst
+ 15. Parameter Settings for User Entity Instance: debounce_and_oneshot:debounce_inst_cw
+ 16. Parameter Settings for User Entity Instance: debounce_and_oneshot:debounce_inst_ccw
+ 17. Parameter Settings for Inferred Entity Instance: apple_generator:apple_gen_inst|lpm_divide:Mod0
+ 18. Parameter Settings for Inferred Entity Instance: apple_generator:apple_gen_inst|lpm_divide:Mod1
+ 19. altpll Parameter Settings by Entity Instance
+ 20. Port Connectivity Checks: "vga_rectangle:vga_rect_inst"
+ 21. Port Connectivity Checks: "gridalizer:grid_inst"
+ 22. Port Connectivity Checks: "vga_pll:u1"
+ 23. Post-Synthesis Netlist Statistics for Top Partition
+ 24. Elapsed Time Per Partition
+ 25. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Fri Nov 29 11:20:50 2024       ;
+; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
+; Revision Name                      ; project1                                    ;
+; Top-level Entity Name              ; snake_game_top                              ;
+; Family                             ; MAX 10                                      ;
+; Total logic elements               ; 424                                         ;
+;     Total combinational functions  ; 419                                         ;
+;     Dedicated logic registers      ; 188                                         ;
+; Total registers                    ; 188                                         ;
+; Total pins                         ; 18                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 1                                           ;
+; UFM blocks                         ; 0                                           ;
+; ADC blocks                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; 10M50DAF484C6GES   ;                    ;
+; Top-level entity name                                            ; snake_game_top     ; project1           ;
+; Family name                                                      ; MAX 10             ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 24          ;
+; Maximum allowed            ; 16          ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 16          ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-16        ;   0.0%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                   ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                               ; Library ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------+---------+
+; snake_game_top.v                 ; yes             ; User Verilog HDL File        ; C:/Users/yoni03/Desktop/project1/snake_game_top.v                          ;         ;
+; vga_pll.v                        ; yes             ; User Verilog HDL File        ; C:/Users/yoni03/Desktop/project1/vga_pll.v                                 ;         ;
+; video_sync_generator.v           ; yes             ; User Verilog HDL File        ; C:/Users/yoni03/Desktop/project1/video_sync_generator.v                    ;         ;
+; gridalizer.v                     ; yes             ; User Verilog HDL File        ; C:/Users/yoni03/Desktop/project1/gridalizer.v                              ;         ;
+; apple_generator.v                ; yes             ; User Verilog HDL File        ; C:/Users/yoni03/Desktop/project1/apple_generator.v                         ;         ;
+; debounce_and_oneshot.v           ; yes             ; User Verilog HDL File        ; C:/Users/yoni03/Desktop/project1/debounce_and_oneshot.v                    ;         ;
+; directionizer.v                  ; yes             ; User Verilog HDL File        ; C:/Users/yoni03/Desktop/project1/directionizer.v                           ;         ;
+; pulser.v                         ; yes             ; User Verilog HDL File        ; C:/Users/yoni03/Desktop/project1/pulser.v                                  ;         ;
+; vga_rectangle.v                  ; yes             ; User Verilog HDL File        ; C:/Users/yoni03/Desktop/project1/vga_rectangle.v                           ;         ;
+; altpll.tdf                       ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altpll.tdf          ;         ;
+; aglobal201.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/aglobal201.inc      ;         ;
+; stratix_pll.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/stratix_pll.inc     ;         ;
+; stratixii_pll.inc                ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/stratixii_pll.inc   ;         ;
+; cycloneii_pll.inc                ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/cycloneii_pll.inc   ;         ;
+; db/altpll_tps.tdf                ; yes             ; Auto-Generated Megafunction  ; C:/Users/yoni03/Desktop/project1/db/altpll_tps.tdf                         ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_divide.tdf      ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/abs_divider.inc     ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/sign_div_unsign.inc ;         ;
+; db/lpm_divide_ekl.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/yoni03/Desktop/project1/db/lpm_divide_ekl.tdf                     ;         ;
+; db/sign_div_unsign_dkh.tdf       ; yes             ; Auto-Generated Megafunction  ; C:/Users/yoni03/Desktop/project1/db/sign_div_unsign_dkh.tdf                ;         ;
+; db/alt_u_div_4fe.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/yoni03/Desktop/project1/db/alt_u_div_4fe.tdf                      ;         ;
+; db/add_sub_t3c.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/yoni03/Desktop/project1/db/add_sub_t3c.tdf                        ;         ;
+; db/add_sub_u3c.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/yoni03/Desktop/project1/db/add_sub_u3c.tdf                        ;         ;
+; db/lpm_divide_dkl.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/yoni03/Desktop/project1/db/lpm_divide_dkl.tdf                     ;         ;
+; db/sign_div_unsign_ckh.tdf       ; yes             ; Auto-Generated Megafunction  ; C:/Users/yoni03/Desktop/project1/db/sign_div_unsign_ckh.tdf                ;         ;
+; db/alt_u_div_2fe.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/yoni03/Desktop/project1/db/alt_u_div_2fe.tdf                      ;         ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary               ;
++---------------------------------------------+-------------+
+; Resource                                    ; Usage       ;
++---------------------------------------------+-------------+
+; Estimated Total logic elements              ; 424         ;
+;                                             ;             ;
+; Total combinational functions               ; 419         ;
+; Logic element usage by number of LUT inputs ;             ;
+;     -- 4 input functions                    ; 127         ;
+;     -- 3 input functions                    ; 69          ;
+;     -- <=2 input functions                  ; 223         ;
+;                                             ;             ;
+; Logic elements by mode                      ;             ;
+;     -- normal mode                          ; 265         ;
+;     -- arithmetic mode                      ; 154         ;
+;                                             ;             ;
+; Total registers                             ; 188         ;
+;     -- Dedicated logic registers            ; 188         ;
+;     -- I/O registers                        ; 0           ;
+;                                             ;             ;
+; I/O pins                                    ; 18          ;
+;                                             ;             ;
+; Embedded Multiplier 9-bit elements          ; 0           ;
+;                                             ;             ;
+; Total PLLs                                  ; 1           ;
+;     -- PLLs                                 ; 1           ;
+;                                             ;             ;
+; Maximum fan-out node                        ; SW[0]~input ;
+; Maximum fan-out                             ; 175         ;
+; Total fan-out                               ; 1890        ;
+; Average fan-out                             ; 2.93        ;
++---------------------------------------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                                                     ;
++---------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+--------------+
+; Compilation Hierarchy Node                  ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                                                            ; Entity Name          ; Library Name ;
++---------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+--------------+
+; |snake_game_top                             ; 419 (32)            ; 188 (26)                  ; 0           ; 0          ; 0            ; 0       ; 0         ; 18   ; 0            ; 0          ; |snake_game_top                                                                                                                                ; snake_game_top       ; work         ;
+;    |apple_generator:apple_gen_inst|         ; 121 (16)            ; 17 (17)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |snake_game_top|apple_generator:apple_gen_inst                                                                                                 ; apple_generator      ; work         ;
+;       |lpm_divide:Mod0|                     ; 49 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |snake_game_top|apple_generator:apple_gen_inst|lpm_divide:Mod0                                                                                 ; lpm_divide           ; work         ;
+;          |lpm_divide_ekl:auto_generated|    ; 49 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |snake_game_top|apple_generator:apple_gen_inst|lpm_divide:Mod0|lpm_divide_ekl:auto_generated                                                   ; lpm_divide_ekl       ; work         ;
+;             |sign_div_unsign_dkh:divider|   ; 49 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |snake_game_top|apple_generator:apple_gen_inst|lpm_divide:Mod0|lpm_divide_ekl:auto_generated|sign_div_unsign_dkh:divider                       ; sign_div_unsign_dkh  ; work         ;
+;                |alt_u_div_4fe:divider|      ; 49 (49)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |snake_game_top|apple_generator:apple_gen_inst|lpm_divide:Mod0|lpm_divide_ekl:auto_generated|sign_div_unsign_dkh:divider|alt_u_div_4fe:divider ; alt_u_div_4fe        ; work         ;
+;       |lpm_divide:Mod1|                     ; 56 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |snake_game_top|apple_generator:apple_gen_inst|lpm_divide:Mod1                                                                                 ; lpm_divide           ; work         ;
+;          |lpm_divide_dkl:auto_generated|    ; 56 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |snake_game_top|apple_generator:apple_gen_inst|lpm_divide:Mod1|lpm_divide_dkl:auto_generated                                                   ; lpm_divide_dkl       ; work         ;
+;             |sign_div_unsign_ckh:divider|   ; 56 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |snake_game_top|apple_generator:apple_gen_inst|lpm_divide:Mod1|lpm_divide_dkl:auto_generated|sign_div_unsign_ckh:divider                       ; sign_div_unsign_ckh  ; work         ;
+;                |alt_u_div_2fe:divider|      ; 56 (56)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |snake_game_top|apple_generator:apple_gen_inst|lpm_divide:Mod1|lpm_divide_dkl:auto_generated|sign_div_unsign_ckh:divider|alt_u_div_2fe:divider ; alt_u_div_2fe        ; work         ;
+;    |debounce_and_oneshot:debounce_inst_ccw| ; 45 (45)             ; 34 (34)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |snake_game_top|debounce_and_oneshot:debounce_inst_ccw                                                                                         ; debounce_and_oneshot ; work         ;
+;    |debounce_and_oneshot:debounce_inst_cw|  ; 45 (45)             ; 34 (34)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |snake_game_top|debounce_and_oneshot:debounce_inst_cw                                                                                          ; debounce_and_oneshot ; work         ;
+;    |directionizer:dir_inst|                 ; 2 (2)               ; 2 (2)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |snake_game_top|directionizer:dir_inst                                                                                                         ; directionizer        ; work         ;
+;    |gridalizer:grid_inst|                   ; 13 (13)             ; 11 (11)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |snake_game_top|gridalizer:grid_inst                                                                                                           ; gridalizer           ; work         ;
+;    |pulser:pulser_inst|                     ; 49 (49)             ; 27 (27)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |snake_game_top|pulser:pulser_inst                                                                                                             ; pulser               ; work         ;
+;    |vga_pll:u1|                             ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |snake_game_top|vga_pll:u1                                                                                                                     ; vga_pll              ; work         ;
+;       |altpll:altpll_component|             ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |snake_game_top|vga_pll:u1|altpll:altpll_component                                                                                             ; altpll               ; work         ;
+;          |altpll_tps:auto_generated|        ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |snake_game_top|vga_pll:u1|altpll:altpll_component|altpll_tps:auto_generated                                                                   ; altpll_tps           ; work         ;
+;    |vga_rectangle:vga_rect_inst|            ; 68 (68)             ; 13 (13)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |snake_game_top|vga_rectangle:vga_rect_inst                                                                                                    ; vga_rectangle        ; work         ;
+;    |video_sync_generator:vga_sync_inst|     ; 44 (44)             ; 24 (24)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |snake_game_top|video_sync_generator:vga_sync_inst                                                                                             ; video_sync_generator ; work         ;
++---------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                  ;
++----------------------------------------------------+----------------------------------------------------------------+
+; Register name                                      ; Reason for Removal                                             ;
++----------------------------------------------------+----------------------------------------------------------------+
+; apple_generator:apple_gen_inst|rand[0]             ; Merged with apple_generator:apple_gen_inst|x_pos[0]            ;
+; apple_generator:apple_gen_inst|y_pos[0]            ; Merged with apple_generator:apple_gen_inst|x_pos[0]            ;
+; vga_rectangle:vga_rect_inst|CurAppleY[0]~_emulated ; Merged with vga_rectangle:vga_rect_inst|CurAppleX[0]~_emulated ;
+; Total Number of Removed Registers = 3              ;                                                                ;
++----------------------------------------------------+----------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 188   ;
+; Number of registers using Synchronous Clear  ; 92    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 154   ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 106   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------+
+; Inverted Register Statistics                      ;
++-----------------------------------------+---------+
+; Inverted Register                       ; Fan out ;
++-----------------------------------------+---------+
+; snake[0][2]                             ; 5       ;
+; snake[0][4]                             ; 5       ;
+; snake[0][7]                             ; 5       ;
+; snake[0][6]                             ; 5       ;
+; snake[0][9]                             ; 5       ;
+; snake[0][8]                             ; 5       ;
+; apple_generator:apple_gen_inst|x_pos[1] ; 4       ;
+; apple_generator:apple_gen_inst|x_pos[3] ; 4       ;
+; apple_generator:apple_gen_inst|y_pos[1] ; 4       ;
+; apple_generator:apple_gen_inst|y_pos[3] ; 4       ;
+; snake_length[0]                         ; 11      ;
+; directionizer:dir_inst|direction[1]     ; 10      ;
+; apple_generator:apple_gen_inst|rand[7]  ; 5       ;
+; apple_generator:apple_gen_inst|rand[6]  ; 7       ;
+; apple_generator:apple_gen_inst|rand[5]  ; 7       ;
+; apple_generator:apple_gen_inst|rand[4]  ; 8       ;
+; apple_generator:apple_gen_inst|rand[3]  ; 8       ;
+; apple_generator:apple_gen_inst|rand[2]  ; 7       ;
+; apple_generator:apple_gen_inst|rand[1]  ; 7       ;
+; Total number of inverted registers = 19 ;         ;
++-----------------------------------------+---------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------+
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |snake_game_top|debounce_and_oneshot:debounce_inst_cw|counter[31]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |snake_game_top|debounce_and_oneshot:debounce_inst_ccw|counter[17] ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |snake_game_top|vga_rectangle:vga_rect_inst|blue                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: vga_pll:u1|altpll:altpll_component ;
++-------------------------------+-------------------+-----------------------------+
+; Parameter Name                ; Value             ; Type                        ;
++-------------------------------+-------------------+-----------------------------+
+; OPERATION_MODE                ; NORMAL            ; Untyped                     ;
+; PLL_TYPE                      ; AUTO              ; Untyped                     ;
+; LPM_HINT                      ; UNUSED            ; Untyped                     ;
+; QUALIFY_CONF_DONE             ; OFF               ; Untyped                     ;
+; COMPENSATE_CLOCK              ; CLK0              ; Untyped                     ;
+; SCAN_CHAIN                    ; LONG              ; Untyped                     ;
+; PRIMARY_CLOCK                 ; INCLK0            ; Untyped                     ;
+; INCLK0_INPUT_FREQUENCY        ; 20000             ; Signed Integer              ;
+; INCLK1_INPUT_FREQUENCY        ; 0                 ; Untyped                     ;
+; GATE_LOCK_SIGNAL              ; NO                ; Untyped                     ;
+; GATE_LOCK_COUNTER             ; 0                 ; Untyped                     ;
+; LOCK_HIGH                     ; 1                 ; Untyped                     ;
+; LOCK_LOW                      ; 1                 ; Untyped                     ;
+; VALID_LOCK_MULTIPLIER         ; 1                 ; Untyped                     ;
+; INVALID_LOCK_MULTIPLIER       ; 5                 ; Untyped                     ;
+; SWITCH_OVER_ON_LOSSCLK        ; OFF               ; Untyped                     ;
+; SWITCH_OVER_ON_GATED_LOCK     ; OFF               ; Untyped                     ;
+; ENABLE_SWITCH_OVER_COUNTER    ; OFF               ; Untyped                     ;
+; SKIP_VCO                      ; OFF               ; Untyped                     ;
+; SWITCH_OVER_COUNTER           ; 0                 ; Untyped                     ;
+; SWITCH_OVER_TYPE              ; AUTO              ; Untyped                     ;
+; FEEDBACK_SOURCE               ; EXTCLK0           ; Untyped                     ;
+; BANDWIDTH                     ; 0                 ; Untyped                     ;
+; BANDWIDTH_TYPE                ; AUTO              ; Untyped                     ;
+; SPREAD_FREQUENCY              ; 0                 ; Untyped                     ;
+; DOWN_SPREAD                   ; 0                 ; Untyped                     ;
+; SELF_RESET_ON_GATED_LOSS_LOCK ; OFF               ; Untyped                     ;
+; SELF_RESET_ON_LOSS_LOCK       ; OFF               ; Untyped                     ;
+; CLK9_MULTIPLY_BY              ; 0                 ; Untyped                     ;
+; CLK8_MULTIPLY_BY              ; 0                 ; Untyped                     ;
+; CLK7_MULTIPLY_BY              ; 0                 ; Untyped                     ;
+; CLK6_MULTIPLY_BY              ; 0                 ; Untyped                     ;
+; CLK5_MULTIPLY_BY              ; 1                 ; Untyped                     ;
+; CLK4_MULTIPLY_BY              ; 1                 ; Untyped                     ;
+; CLK3_MULTIPLY_BY              ; 1                 ; Untyped                     ;
+; CLK2_MULTIPLY_BY              ; 1                 ; Untyped                     ;
+; CLK1_MULTIPLY_BY              ; 1                 ; Untyped                     ;
+; CLK0_MULTIPLY_BY              ; 1                 ; Signed Integer              ;
+; CLK9_DIVIDE_BY                ; 0                 ; Untyped                     ;
+; CLK8_DIVIDE_BY                ; 0                 ; Untyped                     ;
+; CLK7_DIVIDE_BY                ; 0                 ; Untyped                     ;
+; CLK6_DIVIDE_BY                ; 0                 ; Untyped                     ;
+; CLK5_DIVIDE_BY                ; 1                 ; Untyped                     ;
+; CLK4_DIVIDE_BY                ; 1                 ; Untyped                     ;
+; CLK3_DIVIDE_BY                ; 1                 ; Untyped                     ;
+; CLK2_DIVIDE_BY                ; 1                 ; Untyped                     ;
+; CLK1_DIVIDE_BY                ; 1                 ; Untyped                     ;
+; CLK0_DIVIDE_BY                ; 2                 ; Signed Integer              ;
+; CLK9_PHASE_SHIFT              ; 0                 ; Untyped                     ;
+; CLK8_PHASE_SHIFT              ; 0                 ; Untyped                     ;
+; CLK7_PHASE_SHIFT              ; 0                 ; Untyped                     ;
+; CLK6_PHASE_SHIFT              ; 0                 ; Untyped                     ;
+; CLK5_PHASE_SHIFT              ; 0                 ; Untyped                     ;
+; CLK4_PHASE_SHIFT              ; 0                 ; Untyped                     ;
+; CLK3_PHASE_SHIFT              ; 0                 ; Untyped                     ;
+; CLK2_PHASE_SHIFT              ; 0                 ; Untyped                     ;
+; CLK1_PHASE_SHIFT              ; 0                 ; Untyped                     ;
+; CLK0_PHASE_SHIFT              ; 0                 ; Untyped                     ;
+; CLK5_TIME_DELAY               ; 0                 ; Untyped                     ;
+; CLK4_TIME_DELAY               ; 0                 ; Untyped                     ;
+; CLK3_TIME_DELAY               ; 0                 ; Untyped                     ;
+; CLK2_TIME_DELAY               ; 0                 ; Untyped                     ;
+; CLK1_TIME_DELAY               ; 0                 ; Untyped                     ;
+; CLK0_TIME_DELAY               ; 0                 ; Untyped                     ;
+; CLK9_DUTY_CYCLE               ; 50                ; Untyped                     ;
+; CLK8_DUTY_CYCLE               ; 50                ; Untyped                     ;
+; CLK7_DUTY_CYCLE               ; 50                ; Untyped                     ;
+; CLK6_DUTY_CYCLE               ; 50                ; Untyped                     ;
+; CLK5_DUTY_CYCLE               ; 50                ; Untyped                     ;
+; CLK4_DUTY_CYCLE               ; 50                ; Untyped                     ;
+; CLK3_DUTY_CYCLE               ; 50                ; Untyped                     ;
+; CLK2_DUTY_CYCLE               ; 50                ; Untyped                     ;
+; CLK1_DUTY_CYCLE               ; 50                ; Untyped                     ;
+; CLK0_DUTY_CYCLE               ; 50                ; Signed Integer              ;
+; CLK9_USE_EVEN_COUNTER_MODE    ; OFF               ; Untyped                     ;
+; CLK8_USE_EVEN_COUNTER_MODE    ; OFF               ; Untyped                     ;
+; CLK7_USE_EVEN_COUNTER_MODE    ; OFF               ; Untyped                     ;
+; CLK6_USE_EVEN_COUNTER_MODE    ; OFF               ; Untyped                     ;
+; CLK5_USE_EVEN_COUNTER_MODE    ; OFF               ; Untyped                     ;
+; CLK4_USE_EVEN_COUNTER_MODE    ; OFF               ; Untyped                     ;
+; CLK3_USE_EVEN_COUNTER_MODE    ; OFF               ; Untyped                     ;
+; CLK2_USE_EVEN_COUNTER_MODE    ; OFF               ; Untyped                     ;
+; CLK1_USE_EVEN_COUNTER_MODE    ; OFF               ; Untyped                     ;
+; CLK0_USE_EVEN_COUNTER_MODE    ; OFF               ; Untyped                     ;
+; CLK9_USE_EVEN_COUNTER_VALUE   ; OFF               ; Untyped                     ;
+; CLK8_USE_EVEN_COUNTER_VALUE   ; OFF               ; Untyped                     ;
+; CLK7_USE_EVEN_COUNTER_VALUE   ; OFF               ; Untyped                     ;
+; CLK6_USE_EVEN_COUNTER_VALUE   ; OFF               ; Untyped                     ;
+; CLK5_USE_EVEN_COUNTER_VALUE   ; OFF               ; Untyped                     ;
+; CLK4_USE_EVEN_COUNTER_VALUE   ; OFF               ; Untyped                     ;
+; CLK3_USE_EVEN_COUNTER_VALUE   ; OFF               ; Untyped                     ;
+; CLK2_USE_EVEN_COUNTER_VALUE   ; OFF               ; Untyped                     ;
+; CLK1_USE_EVEN_COUNTER_VALUE   ; OFF               ; Untyped                     ;
+; CLK0_USE_EVEN_COUNTER_VALUE   ; OFF               ; Untyped                     ;
+; LOCK_WINDOW_UI                ;  0.05             ; Untyped                     ;
+; LOCK_WINDOW_UI_BITS           ; UNUSED            ; Untyped                     ;
+; VCO_RANGE_DETECTOR_LOW_BITS   ; UNUSED            ; Untyped                     ;
+; VCO_RANGE_DETECTOR_HIGH_BITS  ; UNUSED            ; Untyped                     ;
+; DPA_MULTIPLY_BY               ; 0                 ; Untyped                     ;
+; DPA_DIVIDE_BY                 ; 1                 ; Untyped                     ;
+; DPA_DIVIDER                   ; 0                 ; Untyped                     ;
+; EXTCLK3_MULTIPLY_BY           ; 1                 ; Untyped                     ;
+; EXTCLK2_MULTIPLY_BY           ; 1                 ; Untyped                     ;
+; EXTCLK1_MULTIPLY_BY           ; 1                 ; Untyped                     ;
+; EXTCLK0_MULTIPLY_BY           ; 1                 ; Untyped                     ;
+; EXTCLK3_DIVIDE_BY             ; 1                 ; Untyped                     ;
+; EXTCLK2_DIVIDE_BY             ; 1                 ; Untyped                     ;
+; EXTCLK1_DIVIDE_BY             ; 1                 ; Untyped                     ;
+; EXTCLK0_DIVIDE_BY             ; 1                 ; Untyped                     ;
+; EXTCLK3_PHASE_SHIFT           ; 0                 ; Untyped                     ;
+; EXTCLK2_PHASE_SHIFT           ; 0                 ; Untyped                     ;
+; EXTCLK1_PHASE_SHIFT           ; 0                 ; Untyped                     ;
+; EXTCLK0_PHASE_SHIFT           ; 0                 ; Untyped                     ;
+; EXTCLK3_TIME_DELAY            ; 0                 ; Untyped                     ;
+; EXTCLK2_TIME_DELAY            ; 0                 ; Untyped                     ;
+; EXTCLK1_TIME_DELAY            ; 0                 ; Untyped                     ;
+; EXTCLK0_TIME_DELAY            ; 0                 ; Untyped                     ;
+; EXTCLK3_DUTY_CYCLE            ; 50                ; Untyped                     ;
+; EXTCLK2_DUTY_CYCLE            ; 50                ; Untyped                     ;
+; EXTCLK1_DUTY_CYCLE            ; 50                ; Untyped                     ;
+; EXTCLK0_DUTY_CYCLE            ; 50                ; Untyped                     ;
+; VCO_MULTIPLY_BY               ; 0                 ; Untyped                     ;
+; VCO_DIVIDE_BY                 ; 0                 ; Untyped                     ;
+; SCLKOUT0_PHASE_SHIFT          ; 0                 ; Untyped                     ;
+; SCLKOUT1_PHASE_SHIFT          ; 0                 ; Untyped                     ;
+; VCO_MIN                       ; 0                 ; Untyped                     ;
+; VCO_MAX                       ; 0                 ; Untyped                     ;
+; VCO_CENTER                    ; 0                 ; Untyped                     ;
+; PFD_MIN                       ; 0                 ; Untyped                     ;
+; PFD_MAX                       ; 0                 ; Untyped                     ;
+; M_INITIAL                     ; 0                 ; Untyped                     ;
+; M                             ; 0                 ; Untyped                     ;
+; N                             ; 1                 ; Untyped                     ;
+; M2                            ; 1                 ; Untyped                     ;
+; N2                            ; 1                 ; Untyped                     ;
+; SS                            ; 1                 ; Untyped                     ;
+; C0_HIGH                       ; 0                 ; Untyped                     ;
+; C1_HIGH                       ; 0                 ; Untyped                     ;
+; C2_HIGH                       ; 0                 ; Untyped                     ;
+; C3_HIGH                       ; 0                 ; Untyped                     ;
+; C4_HIGH                       ; 0                 ; Untyped                     ;
+; C5_HIGH                       ; 0                 ; Untyped                     ;
+; C6_HIGH                       ; 0                 ; Untyped                     ;
+; C7_HIGH                       ; 0                 ; Untyped                     ;
+; C8_HIGH                       ; 0                 ; Untyped                     ;
+; C9_HIGH                       ; 0                 ; Untyped                     ;
+; C0_LOW                        ; 0                 ; Untyped                     ;
+; C1_LOW                        ; 0                 ; Untyped                     ;
+; C2_LOW                        ; 0                 ; Untyped                     ;
+; C3_LOW                        ; 0                 ; Untyped                     ;
+; C4_LOW                        ; 0                 ; Untyped                     ;
+; C5_LOW                        ; 0                 ; Untyped                     ;
+; C6_LOW                        ; 0                 ; Untyped                     ;
+; C7_LOW                        ; 0                 ; Untyped                     ;
+; C8_LOW                        ; 0                 ; Untyped                     ;
+; C9_LOW                        ; 0                 ; Untyped                     ;
+; C0_INITIAL                    ; 0                 ; Untyped                     ;
+; C1_INITIAL                    ; 0                 ; Untyped                     ;
+; C2_INITIAL                    ; 0                 ; Untyped                     ;
+; C3_INITIAL                    ; 0                 ; Untyped                     ;
+; C4_INITIAL                    ; 0                 ; Untyped                     ;
+; C5_INITIAL                    ; 0                 ; Untyped                     ;
+; C6_INITIAL                    ; 0                 ; Untyped                     ;
+; C7_INITIAL                    ; 0                 ; Untyped                     ;
+; C8_INITIAL                    ; 0                 ; Untyped                     ;
+; C9_INITIAL                    ; 0                 ; Untyped                     ;
+; C0_MODE                       ; BYPASS            ; Untyped                     ;
+; C1_MODE                       ; BYPASS            ; Untyped                     ;
+; C2_MODE                       ; BYPASS            ; Untyped                     ;
+; C3_MODE                       ; BYPASS            ; Untyped                     ;
+; C4_MODE                       ; BYPASS            ; Untyped                     ;
+; C5_MODE                       ; BYPASS            ; Untyped                     ;
+; C6_MODE                       ; BYPASS            ; Untyped                     ;
+; C7_MODE                       ; BYPASS            ; Untyped                     ;
+; C8_MODE                       ; BYPASS            ; Untyped                     ;
+; C9_MODE                       ; BYPASS            ; Untyped                     ;
+; C0_PH                         ; 0                 ; Untyped                     ;
+; C1_PH                         ; 0                 ; Untyped                     ;
+; C2_PH                         ; 0                 ; Untyped                     ;
+; C3_PH                         ; 0                 ; Untyped                     ;
+; C4_PH                         ; 0                 ; Untyped                     ;
+; C5_PH                         ; 0                 ; Untyped                     ;
+; C6_PH                         ; 0                 ; Untyped                     ;
+; C7_PH                         ; 0                 ; Untyped                     ;
+; C8_PH                         ; 0                 ; Untyped                     ;
+; C9_PH                         ; 0                 ; Untyped                     ;
+; L0_HIGH                       ; 1                 ; Untyped                     ;
+; L1_HIGH                       ; 1                 ; Untyped                     ;
+; G0_HIGH                       ; 1                 ; Untyped                     ;
+; G1_HIGH                       ; 1                 ; Untyped                     ;
+; G2_HIGH                       ; 1                 ; Untyped                     ;
+; G3_HIGH                       ; 1                 ; Untyped                     ;
+; E0_HIGH                       ; 1                 ; Untyped                     ;
+; E1_HIGH                       ; 1                 ; Untyped                     ;
+; E2_HIGH                       ; 1                 ; Untyped                     ;
+; E3_HIGH                       ; 1                 ; Untyped                     ;
+; L0_LOW                        ; 1                 ; Untyped                     ;
+; L1_LOW                        ; 1                 ; Untyped                     ;
+; G0_LOW                        ; 1                 ; Untyped                     ;
+; G1_LOW                        ; 1                 ; Untyped                     ;
+; G2_LOW                        ; 1                 ; Untyped                     ;
+; G3_LOW                        ; 1                 ; Untyped                     ;
+; E0_LOW                        ; 1                 ; Untyped                     ;
+; E1_LOW                        ; 1                 ; Untyped                     ;
+; E2_LOW                        ; 1                 ; Untyped                     ;
+; E3_LOW                        ; 1                 ; Untyped                     ;
+; L0_INITIAL                    ; 1                 ; Untyped                     ;
+; L1_INITIAL                    ; 1                 ; Untyped                     ;
+; G0_INITIAL                    ; 1                 ; Untyped                     ;
+; G1_INITIAL                    ; 1                 ; Untyped                     ;
+; G2_INITIAL                    ; 1                 ; Untyped                     ;
+; G3_INITIAL                    ; 1                 ; Untyped                     ;
+; E0_INITIAL                    ; 1                 ; Untyped                     ;
+; E1_INITIAL                    ; 1                 ; Untyped                     ;
+; E2_INITIAL                    ; 1                 ; Untyped                     ;
+; E3_INITIAL                    ; 1                 ; Untyped                     ;
+; L0_MODE                       ; BYPASS            ; Untyped                     ;
+; L1_MODE                       ; BYPASS            ; Untyped                     ;
+; G0_MODE                       ; BYPASS            ; Untyped                     ;
+; G1_MODE                       ; BYPASS            ; Untyped                     ;
+; G2_MODE                       ; BYPASS            ; Untyped                     ;
+; G3_MODE                       ; BYPASS            ; Untyped                     ;
+; E0_MODE                       ; BYPASS            ; Untyped                     ;
+; E1_MODE                       ; BYPASS            ; Untyped                     ;
+; E2_MODE                       ; BYPASS            ; Untyped                     ;
+; E3_MODE                       ; BYPASS            ; Untyped                     ;
+; L0_PH                         ; 0                 ; Untyped                     ;
+; L1_PH                         ; 0                 ; Untyped                     ;
+; G0_PH                         ; 0                 ; Untyped                     ;
+; G1_PH                         ; 0                 ; Untyped                     ;
+; G2_PH                         ; 0                 ; Untyped                     ;
+; G3_PH                         ; 0                 ; Untyped                     ;
+; E0_PH                         ; 0                 ; Untyped                     ;
+; E1_PH                         ; 0                 ; Untyped                     ;
+; E2_PH                         ; 0                 ; Untyped                     ;
+; E3_PH                         ; 0                 ; Untyped                     ;
+; M_PH                          ; 0                 ; Untyped                     ;
+; C1_USE_CASC_IN                ; OFF               ; Untyped                     ;
+; C2_USE_CASC_IN                ; OFF               ; Untyped                     ;
+; C3_USE_CASC_IN                ; OFF               ; Untyped                     ;
+; C4_USE_CASC_IN                ; OFF               ; Untyped                     ;
+; C5_USE_CASC_IN                ; OFF               ; Untyped                     ;
+; C6_USE_CASC_IN                ; OFF               ; Untyped                     ;
+; C7_USE_CASC_IN                ; OFF               ; Untyped                     ;
+; C8_USE_CASC_IN                ; OFF               ; Untyped                     ;
+; C9_USE_CASC_IN                ; OFF               ; Untyped                     ;
+; CLK0_COUNTER                  ; G0                ; Untyped                     ;
+; CLK1_COUNTER                  ; G0                ; Untyped                     ;
+; CLK2_COUNTER                  ; G0                ; Untyped                     ;
+; CLK3_COUNTER                  ; G0                ; Untyped                     ;
+; CLK4_COUNTER                  ; G0                ; Untyped                     ;
+; CLK5_COUNTER                  ; G0                ; Untyped                     ;
+; CLK6_COUNTER                  ; E0                ; Untyped                     ;
+; CLK7_COUNTER                  ; E1                ; Untyped                     ;
+; CLK8_COUNTER                  ; E2                ; Untyped                     ;
+; CLK9_COUNTER                  ; E3                ; Untyped                     ;
+; L0_TIME_DELAY                 ; 0                 ; Untyped                     ;
+; L1_TIME_DELAY                 ; 0                 ; Untyped                     ;
+; G0_TIME_DELAY                 ; 0                 ; Untyped                     ;
+; G1_TIME_DELAY                 ; 0                 ; Untyped                     ;
+; G2_TIME_DELAY                 ; 0                 ; Untyped                     ;
+; G3_TIME_DELAY                 ; 0                 ; Untyped                     ;
+; E0_TIME_DELAY                 ; 0                 ; Untyped                     ;
+; E1_TIME_DELAY                 ; 0                 ; Untyped                     ;
+; E2_TIME_DELAY                 ; 0                 ; Untyped                     ;
+; E3_TIME_DELAY                 ; 0                 ; Untyped                     ;
+; M_TIME_DELAY                  ; 0                 ; Untyped                     ;
+; N_TIME_DELAY                  ; 0                 ; Untyped                     ;
+; EXTCLK3_COUNTER               ; E3                ; Untyped                     ;
+; EXTCLK2_COUNTER               ; E2                ; Untyped                     ;
+; EXTCLK1_COUNTER               ; E1                ; Untyped                     ;
+; EXTCLK0_COUNTER               ; E0                ; Untyped                     ;
+; ENABLE0_COUNTER               ; L0                ; Untyped                     ;
+; ENABLE1_COUNTER               ; L0                ; Untyped                     ;
+; CHARGE_PUMP_CURRENT           ; 2                 ; Untyped                     ;
+; LOOP_FILTER_R                 ;  1.000000         ; Untyped                     ;
+; LOOP_FILTER_C                 ; 5                 ; Untyped                     ;
+; CHARGE_PUMP_CURRENT_BITS      ; 9999              ; Untyped                     ;
+; LOOP_FILTER_R_BITS            ; 9999              ; Untyped                     ;
+; LOOP_FILTER_C_BITS            ; 9999              ; Untyped                     ;
+; VCO_POST_SCALE                ; 0                 ; Untyped                     ;
+; CLK2_OUTPUT_FREQUENCY         ; 0                 ; Untyped                     ;
+; CLK1_OUTPUT_FREQUENCY         ; 0                 ; Untyped                     ;
+; CLK0_OUTPUT_FREQUENCY         ; 0                 ; Untyped                     ;
+; INTENDED_DEVICE_FAMILY        ; MAX 10            ; Untyped                     ;
+; PORT_CLKENA0                  ; PORT_CONNECTIVITY ; Untyped                     ;
+; PORT_CLKENA1                  ; PORT_CONNECTIVITY ; Untyped                     ;
+; PORT_CLKENA2                  ; PORT_CONNECTIVITY ; Untyped                     ;
+; PORT_CLKENA3                  ; PORT_CONNECTIVITY ; Untyped                     ;
+; PORT_CLKENA4                  ; PORT_CONNECTIVITY ; Untyped                     ;
+; PORT_CLKENA5                  ; PORT_CONNECTIVITY ; Untyped                     ;
+; PORT_EXTCLKENA0               ; PORT_CONNECTIVITY ; Untyped                     ;
+; PORT_EXTCLKENA1               ; PORT_CONNECTIVITY ; Untyped                     ;
+; PORT_EXTCLKENA2               ; PORT_CONNECTIVITY ; Untyped                     ;
+; PORT_EXTCLKENA3               ; PORT_CONNECTIVITY ; Untyped                     ;
+; PORT_EXTCLK0                  ; PORT_CONNECTIVITY ; Untyped                     ;
+; PORT_EXTCLK1                  ; PORT_CONNECTIVITY ; Untyped                     ;
+; PORT_EXTCLK2                  ; PORT_CONNECTIVITY ; Untyped                     ;
+; PORT_EXTCLK3                  ; PORT_CONNECTIVITY ; Untyped                     ;
+; PORT_CLKBAD0                  ; PORT_CONNECTIVITY ; Untyped                     ;
+; PORT_CLKBAD1                  ; PORT_CONNECTIVITY ; Untyped                     ;
+; PORT_CLK0                     ; PORT_CONNECTIVITY ; Untyped                     ;
+; PORT_CLK1                     ; PORT_CONNECTIVITY ; Untyped                     ;
+; PORT_CLK2                     ; PORT_CONNECTIVITY ; Untyped                     ;
+; PORT_CLK3                     ; PORT_CONNECTIVITY ; Untyped                     ;
+; PORT_CLK4                     ; PORT_CONNECTIVITY ; Untyped                     ;
+; PORT_CLK5                     ; PORT_CONNECTIVITY ; Untyped                     ;
+; PORT_CLK6                     ; PORT_UNUSED       ; Untyped                     ;
+; PORT_CLK7                     ; PORT_UNUSED       ; Untyped                     ;
+; PORT_CLK8                     ; PORT_UNUSED       ; Untyped                     ;
+; PORT_CLK9                     ; PORT_UNUSED       ; Untyped                     ;
+; PORT_SCANDATA                 ; PORT_CONNECTIVITY ; Untyped                     ;
+; PORT_SCANDATAOUT              ; PORT_CONNECTIVITY ; Untyped                     ;
+; PORT_SCANDONE                 ; PORT_CONNECTIVITY ; Untyped                     ;
+; PORT_SCLKOUT1                 ; PORT_CONNECTIVITY ; Untyped                     ;
+; PORT_SCLKOUT0                 ; PORT_CONNECTIVITY ; Untyped                     ;
+; PORT_ACTIVECLOCK              ; PORT_CONNECTIVITY ; Untyped                     ;
+; PORT_CLKLOSS                  ; PORT_CONNECTIVITY ; Untyped                     ;
+; PORT_INCLK1                   ; PORT_CONNECTIVITY ; Untyped                     ;
+; PORT_INCLK0                   ; PORT_CONNECTIVITY ; Untyped                     ;
+; PORT_FBIN                     ; PORT_CONNECTIVITY ; Untyped                     ;
+; PORT_PLLENA                   ; PORT_CONNECTIVITY ; Untyped                     ;
+; PORT_CLKSWITCH                ; PORT_CONNECTIVITY ; Untyped                     ;
+; PORT_ARESET                   ; PORT_CONNECTIVITY ; Untyped                     ;
+; PORT_PFDENA                   ; PORT_CONNECTIVITY ; Untyped                     ;
+; PORT_SCANCLK                  ; PORT_CONNECTIVITY ; Untyped                     ;
+; PORT_SCANACLR                 ; PORT_CONNECTIVITY ; Untyped                     ;
+; PORT_SCANREAD                 ; PORT_CONNECTIVITY ; Untyped                     ;
+; PORT_SCANWRITE                ; PORT_CONNECTIVITY ; Untyped                     ;
+; PORT_ENABLE0                  ; PORT_CONNECTIVITY ; Untyped                     ;
+; PORT_ENABLE1                  ; PORT_CONNECTIVITY ; Untyped                     ;
+; PORT_LOCKED                   ; PORT_CONNECTIVITY ; Untyped                     ;
+; PORT_CONFIGUPDATE             ; PORT_CONNECTIVITY ; Untyped                     ;
+; PORT_FBOUT                    ; PORT_CONNECTIVITY ; Untyped                     ;
+; PORT_PHASEDONE                ; PORT_CONNECTIVITY ; Untyped                     ;
+; PORT_PHASESTEP                ; PORT_CONNECTIVITY ; Untyped                     ;
+; PORT_PHASEUPDOWN              ; PORT_CONNECTIVITY ; Untyped                     ;
+; PORT_SCANCLKENA               ; PORT_CONNECTIVITY ; Untyped                     ;
+; PORT_PHASECOUNTERSELECT       ; PORT_CONNECTIVITY ; Untyped                     ;
+; PORT_VCOOVERRANGE             ; PORT_CONNECTIVITY ; Untyped                     ;
+; PORT_VCOUNDERRANGE            ; PORT_CONNECTIVITY ; Untyped                     ;
+; M_TEST_SOURCE                 ; 5                 ; Untyped                     ;
+; C0_TEST_SOURCE                ; 5                 ; Untyped                     ;
+; C1_TEST_SOURCE                ; 5                 ; Untyped                     ;
+; C2_TEST_SOURCE                ; 5                 ; Untyped                     ;
+; C3_TEST_SOURCE                ; 5                 ; Untyped                     ;
+; C4_TEST_SOURCE                ; 5                 ; Untyped                     ;
+; C5_TEST_SOURCE                ; 5                 ; Untyped                     ;
+; C6_TEST_SOURCE                ; 5                 ; Untyped                     ;
+; C7_TEST_SOURCE                ; 5                 ; Untyped                     ;
+; C8_TEST_SOURCE                ; 5                 ; Untyped                     ;
+; C9_TEST_SOURCE                ; 5                 ; Untyped                     ;
+; CBXI_PARAMETER                ; altpll_tps        ; Untyped                     ;
+; VCO_FREQUENCY_CONTROL         ; AUTO              ; Untyped                     ;
+; VCO_PHASE_SHIFT_STEP          ; 0                 ; Untyped                     ;
+; WIDTH_CLOCK                   ; 6                 ; Untyped                     ;
+; WIDTH_PHASECOUNTERSELECT      ; 4                 ; Untyped                     ;
+; USING_FBMIMICBIDIR_PORT       ; OFF               ; Untyped                     ;
+; DEVICE_FAMILY                 ; MAX 10            ; Untyped                     ;
+; SCAN_CHAIN_MIF_FILE           ; UNUSED            ; Untyped                     ;
+; SIM_GATE_LOCK_DEVICE_BEHAVIOR ; OFF               ; Untyped                     ;
+; AUTO_CARRY_CHAINS             ; ON                ; AUTO_CARRY                  ;
+; IGNORE_CARRY_BUFFERS          ; OFF               ; IGNORE_CARRY                ;
+; AUTO_CASCADE_CHAINS           ; ON                ; AUTO_CASCADE                ;
+; IGNORE_CASCADE_BUFFERS        ; OFF               ; IGNORE_CASCADE              ;
++-------------------------------+-------------------+-----------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: video_sync_generator:vga_sync_inst ;
++----------------+-------+--------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                   ;
++----------------+-------+--------------------------------------------------------+
+; H_TOTAL        ; 800   ; Signed Integer                                         ;
+; H_SYNC_PULSE   ; 96    ; Signed Integer                                         ;
+; H_BACK_PORCH   ; 48    ; Signed Integer                                         ;
+; H_ACTIVE       ; 640   ; Signed Integer                                         ;
+; H_FRONT_PORCH  ; 16    ; Signed Integer                                         ;
+; V_TOTAL        ; 525   ; Signed Integer                                         ;
+; V_SYNC_PULSE   ; 2     ; Signed Integer                                         ;
+; V_BACK_PORCH   ; 33    ; Signed Integer                                         ;
+; V_ACTIVE       ; 480   ; Signed Integer                                         ;
+; V_FRONT_PORCH  ; 10    ; Signed Integer                                         ;
++----------------+-------+--------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: gridalizer:grid_inst ;
++-------------------+-------+---------------------------------------+
+; Parameter Name    ; Value ; Type                                  ;
++-------------------+-------+---------------------------------------+
+; GRID_WIDTH        ; 80    ; Signed Integer                        ;
+; GRID_HEIGHT       ; 60    ; Signed Integer                        ;
+; PIXELS_PER_GRID_X ; 8     ; Signed Integer                        ;
+; PIXELS_PER_GRID_Y ; 8     ; Signed Integer                        ;
++-------------------+-------+---------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: debounce_and_oneshot:debounce_inst_cw ;
++----------------+---------+---------------------------------------------------------+
+; Parameter Name ; Value   ; Type                                                    ;
++----------------+---------+---------------------------------------------------------+
+; MINWIDTH       ; 5000000 ; Signed Integer                                          ;
+; COUNTERWIDTH   ; 32      ; Signed Integer                                          ;
++----------------+---------+---------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: debounce_and_oneshot:debounce_inst_ccw ;
++----------------+---------+----------------------------------------------------------+
+; Parameter Name ; Value   ; Type                                                     ;
++----------------+---------+----------------------------------------------------------+
+; MINWIDTH       ; 5000000 ; Signed Integer                                           ;
+; COUNTERWIDTH   ; 32      ; Signed Integer                                           ;
++----------------+---------+----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: apple_generator:apple_gen_inst|lpm_divide:Mod0 ;
++------------------------+----------------+-------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                  ;
++------------------------+----------------+-------------------------------------------------------+
+; LPM_WIDTHN             ; 8              ; Untyped                                               ;
+; LPM_WIDTHD             ; 6              ; Untyped                                               ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                               ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                               ;
+; LPM_PIPELINE           ; 0              ; Untyped                                               ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                               ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                               ;
+; CBXI_PARAMETER         ; lpm_divide_ekl ; Untyped                                               ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                               ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                               ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                            ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                          ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                          ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                        ;
++------------------------+----------------+-------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: apple_generator:apple_gen_inst|lpm_divide:Mod1 ;
++------------------------+----------------+-------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                  ;
++------------------------+----------------+-------------------------------------------------------+
+; LPM_WIDTHN             ; 8              ; Untyped                                               ;
+; LPM_WIDTHD             ; 5              ; Untyped                                               ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                               ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                               ;
+; LPM_PIPELINE           ; 0              ; Untyped                                               ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                               ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                               ;
+; CBXI_PARAMETER         ; lpm_divide_dkl ; Untyped                                               ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                               ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                               ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                            ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                          ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                          ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                        ;
++------------------------+----------------+-------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------+
+; altpll Parameter Settings by Entity Instance                       ;
++-------------------------------+------------------------------------+
+; Name                          ; Value                              ;
++-------------------------------+------------------------------------+
+; Number of entity instances    ; 1                                  ;
+; Entity Instance               ; vga_pll:u1|altpll:altpll_component ;
+;     -- OPERATION_MODE         ; NORMAL                             ;
+;     -- PLL_TYPE               ; AUTO                               ;
+;     -- PRIMARY_CLOCK          ; INCLK0                             ;
+;     -- INCLK0_INPUT_FREQUENCY ; 20000                              ;
+;     -- INCLK1_INPUT_FREQUENCY ; 0                                  ;
+;     -- VCO_MULTIPLY_BY        ; 0                                  ;
+;     -- VCO_DIVIDE_BY          ; 0                                  ;
++-------------------------------+------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "vga_rectangle:vga_rect_inst"                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; CurAppleX ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; CurAppleY ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "gridalizer:grid_inst"                                                                                                                                                   ;
++--------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                                                                                                               ;
++--------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; grid_x ; Output ; Warning  ; Output or bidir port (6 bits) is smaller than the port expression (7 bits) it drives.  The 1 most-significant bit(s) in the port expression will be connected to GND. ;
+; grid_y ; Output ; Warning  ; Output or bidir port (5 bits) is smaller than the port expression (6 bits) it drives.  The 1 most-significant bit(s) in the port expression will be connected to GND. ;
++--------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "vga_pll:u1"                                                                           ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; locked ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 18                          ;
+; cycloneiii_ff         ; 188                         ;
+;     CLR               ; 20                          ;
+;     CLR SCLR          ; 28                          ;
+;     ENA CLR           ; 42                          ;
+;     ENA CLR SCLR      ; 64                          ;
+;     plain             ; 34                          ;
+; cycloneiii_lcell_comb ; 419                         ;
+;     arith             ; 154                         ;
+;         2 data inputs ; 121                         ;
+;         3 data inputs ; 33                          ;
+;     normal            ; 265                         ;
+;         0 data inputs ; 7                           ;
+;         1 data inputs ; 20                          ;
+;         2 data inputs ; 75                          ;
+;         3 data inputs ; 36                          ;
+;         4 data inputs ; 127                         ;
+; cycloneiii_pll        ; 1                           ;
+;                       ;                             ;
+; Max LUT depth         ; 9.50                        ;
+; Average LUT depth     ; 4.20                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+    Info: Processing started: Fri Nov 29 11:20:44 2024
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off project1 -c project1
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file de10_lite_golden_top.v
+    Info (12023): Found entity 1: DE10_LITE_Golden_Top File: C:/Users/yoni03/Desktop/project1/DE10_LITE_Golden_Top.v Line: 29
+Info (12021): Found 1 design units, including 1 entities, in source file snake_game_top.v
+    Info (12023): Found entity 1: snake_game_top File: C:/Users/yoni03/Desktop/project1/snake_game_top.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file vga_pll.v
+    Info (12023): Found entity 1: vga_pll File: C:/Users/yoni03/Desktop/project1/vga_pll.v Line: 5
+Info (12021): Found 1 design units, including 1 entities, in source file video_sync_generator.v
+    Info (12023): Found entity 1: video_sync_generator File: C:/Users/yoni03/Desktop/project1/video_sync_generator.v Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file gridalizer.v
+    Info (12023): Found entity 1: gridalizer File: C:/Users/yoni03/Desktop/project1/gridalizer.v Line: 1
+Warning (10463): Verilog HDL Declaration warning at apple_generator.v(7): "rand" is SystemVerilog-2005 keyword File: C:/Users/yoni03/Desktop/project1/apple_generator.v Line: 7
+Info (12021): Found 1 design units, including 1 entities, in source file apple_generator.v
+    Info (12023): Found entity 1: apple_generator File: C:/Users/yoni03/Desktop/project1/apple_generator.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file debounce_and_oneshot.v
+    Info (12023): Found entity 1: debounce_and_oneshot File: C:/Users/yoni03/Desktop/project1/debounce_and_oneshot.v Line: 18
+Info (12021): Found 1 design units, including 1 entities, in source file directionizer.v
+    Info (12023): Found entity 1: directionizer File: C:/Users/yoni03/Desktop/project1/directionizer.v Line: 41
+Info (12021): Found 1 design units, including 1 entities, in source file pulser.v
+    Info (12023): Found entity 1: pulser File: C:/Users/yoni03/Desktop/project1/pulser.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file vga_rectangle.v
+    Info (12023): Found entity 1: vga_rectangle File: C:/Users/yoni03/Desktop/project1/vga_rectangle.v Line: 1
+Info (12127): Elaborating entity "snake_game_top" for the top level hierarchy
+Warning (10230): Verilog HDL assignment warning at snake_game_top.v(135): truncated value with size 32 to match size of target (5) File: C:/Users/yoni03/Desktop/project1/snake_game_top.v Line: 135
+Warning (10230): Verilog HDL assignment warning at snake_game_top.v(136): truncated value with size 32 to match size of target (6) File: C:/Users/yoni03/Desktop/project1/snake_game_top.v Line: 136
+Warning (10230): Verilog HDL assignment warning at snake_game_top.v(137): truncated value with size 32 to match size of target (5) File: C:/Users/yoni03/Desktop/project1/snake_game_top.v Line: 137
+Warning (10230): Verilog HDL assignment warning at snake_game_top.v(138): truncated value with size 32 to match size of target (6) File: C:/Users/yoni03/Desktop/project1/snake_game_top.v Line: 138
+Warning (10230): Verilog HDL assignment warning at snake_game_top.v(145): truncated value with size 32 to match size of target (4) File: C:/Users/yoni03/Desktop/project1/snake_game_top.v Line: 145
+Info (12128): Elaborating entity "vga_pll" for hierarchy "vga_pll:u1" File: C:/Users/yoni03/Desktop/project1/snake_game_top.v Line: 24
+Info (12128): Elaborating entity "altpll" for hierarchy "vga_pll:u1|altpll:altpll_component" File: C:/Users/yoni03/Desktop/project1/vga_pll.v Line: 25
+Info (12130): Elaborated megafunction instantiation "vga_pll:u1|altpll:altpll_component" File: C:/Users/yoni03/Desktop/project1/vga_pll.v Line: 25
+Info (12133): Instantiated megafunction "vga_pll:u1|altpll:altpll_component" with the following parameter: File: C:/Users/yoni03/Desktop/project1/vga_pll.v Line: 25
+    Info (12134): Parameter "bandwidth_type" = "AUTO"
+    Info (12134): Parameter "clk0_divide_by" = "2"
+    Info (12134): Parameter "clk0_duty_cycle" = "50"
+    Info (12134): Parameter "clk0_multiply_by" = "1"
+    Info (12134): Parameter "clk0_phase_shift" = "0"
+    Info (12134): Parameter "inclk0_input_frequency" = "20000"
+    Info (12134): Parameter "intended_device_family" = "MAX 10"
+    Info (12134): Parameter "operation_mode" = "NORMAL"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altpll_tps.tdf
+    Info (12023): Found entity 1: altpll_tps File: C:/Users/yoni03/Desktop/project1/db/altpll_tps.tdf Line: 28
+Info (12128): Elaborating entity "altpll_tps" for hierarchy "vga_pll:u1|altpll:altpll_component|altpll_tps:auto_generated" File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altpll.tdf Line: 898
+Info (12128): Elaborating entity "video_sync_generator" for hierarchy "video_sync_generator:vga_sync_inst" File: C:/Users/yoni03/Desktop/project1/snake_game_top.v Line: 42
+Warning (10230): Verilog HDL assignment warning at video_sync_generator.v(42): truncated value with size 32 to match size of target (10) File: C:/Users/yoni03/Desktop/project1/video_sync_generator.v Line: 42
+Warning (10230): Verilog HDL assignment warning at video_sync_generator.v(45): truncated value with size 32 to match size of target (11) File: C:/Users/yoni03/Desktop/project1/video_sync_generator.v Line: 45
+Info (12128): Elaborating entity "gridalizer" for hierarchy "gridalizer:grid_inst" File: C:/Users/yoni03/Desktop/project1/snake_game_top.v Line: 54
+Warning (10230): Verilog HDL assignment warning at gridalizer.v(18): truncated value with size 32 to match size of target (6) File: C:/Users/yoni03/Desktop/project1/gridalizer.v Line: 18
+Warning (10230): Verilog HDL assignment warning at gridalizer.v(20): truncated value with size 32 to match size of target (6) File: C:/Users/yoni03/Desktop/project1/gridalizer.v Line: 20
+Warning (10230): Verilog HDL assignment warning at gridalizer.v(23): truncated value with size 32 to match size of target (5) File: C:/Users/yoni03/Desktop/project1/gridalizer.v Line: 23
+Warning (10230): Verilog HDL assignment warning at gridalizer.v(25): truncated value with size 32 to match size of target (5) File: C:/Users/yoni03/Desktop/project1/gridalizer.v Line: 25
+Info (12128): Elaborating entity "apple_generator" for hierarchy "apple_generator:apple_gen_inst" File: C:/Users/yoni03/Desktop/project1/snake_game_top.v Line: 64
+Warning (10230): Verilog HDL assignment warning at apple_generator.v(18): truncated value with size 32 to match size of target (6) File: C:/Users/yoni03/Desktop/project1/apple_generator.v Line: 18
+Warning (10230): Verilog HDL assignment warning at apple_generator.v(19): truncated value with size 32 to match size of target (5) File: C:/Users/yoni03/Desktop/project1/apple_generator.v Line: 19
+Info (12128): Elaborating entity "debounce_and_oneshot" for hierarchy "debounce_and_oneshot:debounce_inst_cw" File: C:/Users/yoni03/Desktop/project1/snake_game_top.v Line: 79
+Info (12128): Elaborating entity "directionizer" for hierarchy "directionizer:dir_inst" File: C:/Users/yoni03/Desktop/project1/snake_game_top.v Line: 95
+Info (12128): Elaborating entity "pulser" for hierarchy "pulser:pulser_inst" File: C:/Users/yoni03/Desktop/project1/snake_game_top.v Line: 106
+Warning (10230): Verilog HDL assignment warning at pulser.v(27): truncated value with size 32 to match size of target (26) File: C:/Users/yoni03/Desktop/project1/pulser.v Line: 27
+Info (12128): Elaborating entity "vga_rectangle" for hierarchy "vga_rectangle:vga_rect_inst" File: C:/Users/yoni03/Desktop/project1/snake_game_top.v Line: 180
+Warning (12011): Net is missing source, defaulting to GND
+    Warning (12110): Net "grid_x[6]" is missing source, defaulting to GND File: C:/Users/yoni03/Desktop/project1/snake_game_top.v Line: 45
+    Warning (12110): Net "grid_y[5]" is missing source, defaulting to GND File: C:/Users/yoni03/Desktop/project1/snake_game_top.v Line: 46
+Warning (12011): Net is missing source, defaulting to GND
+    Warning (12110): Net "grid_x[6]" is missing source, defaulting to GND File: C:/Users/yoni03/Desktop/project1/snake_game_top.v Line: 45
+    Warning (12110): Net "grid_y[5]" is missing source, defaulting to GND File: C:/Users/yoni03/Desktop/project1/snake_game_top.v Line: 46
+Warning (12030): Port "clk" on the entity instantiation of "altpll_component" is connected to a signal of width 1. The formal width of the signal in the module is 6.  The extra bits will be left dangling without any fan-out logic. File: C:/Users/yoni03/Desktop/project1/vga_pll.v Line: 25
+Warning (12011): Net is missing source, defaulting to GND
+    Warning (12110): Net "grid_x[6]" is missing source, defaulting to GND File: C:/Users/yoni03/Desktop/project1/snake_game_top.v Line: 45
+    Warning (12110): Net "grid_y[5]" is missing source, defaulting to GND File: C:/Users/yoni03/Desktop/project1/snake_game_top.v Line: 46
+Info (278001): Inferred 2 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "apple_generator:apple_gen_inst|Mod0" File: C:/Users/yoni03/Desktop/project1/apple_generator.v Line: 18
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "apple_generator:apple_gen_inst|Mod1" File: C:/Users/yoni03/Desktop/project1/apple_generator.v Line: 19
+Info (12130): Elaborated megafunction instantiation "apple_generator:apple_gen_inst|lpm_divide:Mod0" File: C:/Users/yoni03/Desktop/project1/apple_generator.v Line: 18
+Info (12133): Instantiated megafunction "apple_generator:apple_gen_inst|lpm_divide:Mod0" with the following parameter: File: C:/Users/yoni03/Desktop/project1/apple_generator.v Line: 18
+    Info (12134): Parameter "LPM_WIDTHN" = "8"
+    Info (12134): Parameter "LPM_WIDTHD" = "6"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_ekl.tdf
+    Info (12023): Found entity 1: lpm_divide_ekl File: C:/Users/yoni03/Desktop/project1/db/lpm_divide_ekl.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_dkh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_dkh File: C:/Users/yoni03/Desktop/project1/db/sign_div_unsign_dkh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_4fe.tdf
+    Info (12023): Found entity 1: alt_u_div_4fe File: C:/Users/yoni03/Desktop/project1/db/alt_u_div_4fe.tdf Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_t3c.tdf
+    Info (12023): Found entity 1: add_sub_t3c File: C:/Users/yoni03/Desktop/project1/db/add_sub_t3c.tdf Line: 23
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_u3c.tdf
+    Info (12023): Found entity 1: add_sub_u3c File: C:/Users/yoni03/Desktop/project1/db/add_sub_u3c.tdf Line: 23
+Info (12130): Elaborated megafunction instantiation "apple_generator:apple_gen_inst|lpm_divide:Mod1" File: C:/Users/yoni03/Desktop/project1/apple_generator.v Line: 19
+Info (12133): Instantiated megafunction "apple_generator:apple_gen_inst|lpm_divide:Mod1" with the following parameter: File: C:/Users/yoni03/Desktop/project1/apple_generator.v Line: 19
+    Info (12134): Parameter "LPM_WIDTHN" = "8"
+    Info (12134): Parameter "LPM_WIDTHD" = "5"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_dkl.tdf
+    Info (12023): Found entity 1: lpm_divide_dkl File: C:/Users/yoni03/Desktop/project1/db/lpm_divide_dkl.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_ckh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_ckh File: C:/Users/yoni03/Desktop/project1/db/sign_div_unsign_ckh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_2fe.tdf
+    Info (12023): Found entity 1: alt_u_div_2fe File: C:/Users/yoni03/Desktop/project1/db/alt_u_div_2fe.tdf Line: 27
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info (13000): Registers with preset signals will power-up high File: C:/Users/yoni03/Desktop/project1/directionizer.v Line: 71
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Warning (13004): Presettable and clearable registers converted to equivalent circuits with latches. Registers power-up to an undefined state, and DEVCLRn places the registers in an undefined state.
+    Warning (13310): Register "vga_rectangle:vga_rect_inst|CurAppleX[0]" is converted into an equivalent circuit using register "vga_rectangle:vga_rect_inst|CurAppleX[0]~_emulated" and latch "vga_rectangle:vga_rect_inst|CurAppleX[0]~1" File: C:/Users/yoni03/Desktop/project1/vga_rectangle.v Line: 116
+    Warning (13310): Register "vga_rectangle:vga_rect_inst|CurAppleX[1]" is converted into an equivalent circuit using register "vga_rectangle:vga_rect_inst|CurAppleX[1]~_emulated" and latch "vga_rectangle:vga_rect_inst|CurAppleX[1]~5" File: C:/Users/yoni03/Desktop/project1/vga_rectangle.v Line: 116
+    Warning (13310): Register "vga_rectangle:vga_rect_inst|CurAppleX[2]" is converted into an equivalent circuit using register "vga_rectangle:vga_rect_inst|CurAppleX[2]~_emulated" and latch "vga_rectangle:vga_rect_inst|CurAppleX[2]~9" File: C:/Users/yoni03/Desktop/project1/vga_rectangle.v Line: 116
+    Warning (13310): Register "vga_rectangle:vga_rect_inst|CurAppleX[3]" is converted into an equivalent circuit using register "vga_rectangle:vga_rect_inst|CurAppleX[3]~_emulated" and latch "vga_rectangle:vga_rect_inst|CurAppleX[3]~13" File: C:/Users/yoni03/Desktop/project1/vga_rectangle.v Line: 116
+    Warning (13310): Register "vga_rectangle:vga_rect_inst|CurAppleX[4]" is converted into an equivalent circuit using register "vga_rectangle:vga_rect_inst|CurAppleX[4]~_emulated" and latch "vga_rectangle:vga_rect_inst|CurAppleX[4]~17" File: C:/Users/yoni03/Desktop/project1/vga_rectangle.v Line: 116
+    Warning (13310): Register "vga_rectangle:vga_rect_inst|CurAppleX[5]" is converted into an equivalent circuit using register "vga_rectangle:vga_rect_inst|CurAppleX[5]~_emulated" and latch "vga_rectangle:vga_rect_inst|CurAppleX[5]~21" File: C:/Users/yoni03/Desktop/project1/vga_rectangle.v Line: 116
+    Warning (13310): Register "vga_rectangle:vga_rect_inst|CurAppleY[0]" is converted into an equivalent circuit using register "vga_rectangle:vga_rect_inst|CurAppleY[0]~_emulated" and latch "vga_rectangle:vga_rect_inst|CurAppleX[0]~1" File: C:/Users/yoni03/Desktop/project1/vga_rectangle.v Line: 116
+    Warning (13310): Register "vga_rectangle:vga_rect_inst|CurAppleY[1]" is converted into an equivalent circuit using register "vga_rectangle:vga_rect_inst|CurAppleY[1]~_emulated" and latch "vga_rectangle:vga_rect_inst|CurAppleY[1]~3" File: C:/Users/yoni03/Desktop/project1/vga_rectangle.v Line: 116
+    Warning (13310): Register "vga_rectangle:vga_rect_inst|CurAppleY[2]" is converted into an equivalent circuit using register "vga_rectangle:vga_rect_inst|CurAppleY[2]~_emulated" and latch "vga_rectangle:vga_rect_inst|CurAppleY[2]~7" File: C:/Users/yoni03/Desktop/project1/vga_rectangle.v Line: 116
+    Warning (13310): Register "vga_rectangle:vga_rect_inst|CurAppleY[3]" is converted into an equivalent circuit using register "vga_rectangle:vga_rect_inst|CurAppleY[3]~_emulated" and latch "vga_rectangle:vga_rect_inst|CurAppleY[3]~11" File: C:/Users/yoni03/Desktop/project1/vga_rectangle.v Line: 116
+    Warning (13310): Register "vga_rectangle:vga_rect_inst|CurAppleY[4]" is converted into an equivalent circuit using register "vga_rectangle:vga_rect_inst|CurAppleY[4]~_emulated" and latch "vga_rectangle:vga_rect_inst|CurAppleY[4]~15" File: C:/Users/yoni03/Desktop/project1/vga_rectangle.v Line: 116
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 1 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 446 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 4 input pins
+    Info (21059): Implemented 14 output pins
+    Info (21061): Implemented 427 logic cells
+    Info (21065): Implemented 1 PLLs
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 39 warnings
+    Info: Peak virtual memory: 4891 megabytes
+    Info: Processing ended: Fri Nov 29 11:20:50 2024
+    Info: Elapsed time: 00:00:06
+    Info: Total CPU time (on all processors): 00:00:11
+
+

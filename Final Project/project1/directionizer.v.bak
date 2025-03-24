@@ -1,0 +1,45 @@
+module directionizer(
+    input clk,
+    input clockwise,
+    input counterclockwise,
+    output reg [1:0] direction,
+    input reset
+);
+
+    reg [1:0] last_direction;
+
+    always @(posedge clk or posedge reset)
+    begin
+        if (reset)
+        begin
+            direction <= 2'd2; // Initially moving downwards
+            last_direction <= 2'd2;
+        end
+        else if (clockwise)
+        begin
+            case (last_direction)
+                2'd0: direction <= 2'd1; // Up to Right
+                2'd1: direction <= 2'd2; // Right to Down
+                2'd2: direction <= 2'd3; // Down to Left
+                2'd3: direction <= 2'd0; // Left to Up
+            endcase
+            last_direction <= direction;
+        end
+        else if (counterclockwise)
+        begin
+            case (last_direction)
+                2'd0: direction <= 2'd3; // Up to Left
+                2'd1: direction <= 2'd0; // Right to Up
+                2'd2: direction <= 2'd1; // Down to Right
+                2'd3: direction <= 2'd2; // Left to Down
+            endcase
+            last_direction <= direction;
+        end
+        else
+        begin
+            direction <= last_direction;
+        end
+    end
+
+endmodule
+

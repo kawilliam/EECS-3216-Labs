@@ -1,0 +1,22 @@
+module apple_generator(
+    input clk,
+    output reg [5:0] x_pos,
+    output reg [4:0] y_pos
+);
+
+    reg [7:0] rand;
+
+    initial begin
+        x_pos = 10;
+        y_pos = 10;
+        rand = 8'hFF; // Initial seed
+    end
+
+    always @(posedge clk)
+    begin
+        rand <= rand + 8'h13; // Simple LFSR for randomness
+        x_pos <= (rand % 40); // Grid width
+        y_pos <= (rand % 30); // Grid height
+    end
+
+endmodule

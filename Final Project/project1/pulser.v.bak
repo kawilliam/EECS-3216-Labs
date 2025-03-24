@@ -1,0 +1,45 @@
+module pulser(
+    output reg p,
+    input clk,
+    input [4:0] len,
+    input reset
+);
+
+    reg [25:0] count;
+    reg [25:0] PERIOD;
+
+    always @(posedge clk or posedge reset)
+    begin
+        if (reset)
+        begin
+            count <= 0;
+            p <= 0;
+        end
+        else
+        begin
+            if (count >= PERIOD)
+            begin
+                count <= 0;
+                p <= 1;
+            end
+            else
+            begin
+                count <= count + 1;
+                p <= 0;
+            end
+        end
+    end
+
+    // Adjust speed based on snake length
+    always @(*)
+    begin
+        if (len < 15)
+            PERIOD = 18000000; // Slow
+        else if (len < 30)
+            PERIOD = 12000000; // Medium
+        else
+            PERIOD = 8000000;  // Fast
+    end
+
+endmodule
+

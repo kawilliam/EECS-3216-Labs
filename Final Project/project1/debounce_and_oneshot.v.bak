@@ -1,0 +1,41 @@
+module debounce_and_oneshot(
+    output reg debounce_out,
+    input debounce_in,
+    input clk_50MHz,
+    input rst
+);
+
+    parameter MINWIDTH = 500000; // Adjust for debounce time (~10ms at 50MHz)
+    parameter COUNTERWIDTH = 20;
+
+    reg [COUNTERWIDTH-1:0] counter;
+    reg debounce_state;
+
+    always @(posedge clk_50MHz or posedge rst)
+    begin
+        if (rst)
+        begin
+            counter <= 0;
+            debounce_state <= 0;
+            debounce_out <= 0;
+        end
+        else
+        begin
+            if (debounce_in != debounce_state)
+            begin
+                counter <= 0;
+                debounce_state <= debounce_in;
+                debounce_out <= 0;
+            end
+            else
+            begin
+                if (counter < MINWIDTH)
+                    counter <= counter + 1;
+                else
+                    debounce_out <= debounce_in;
+            end
+        end
+    end
+
+endmodule
+

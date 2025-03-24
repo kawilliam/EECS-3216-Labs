@@ -1,0 +1,16 @@
+Analysis & Synthesis Status : Successful - Fri Nov 29 11:20:50 2024
+Quartus Prime Version : 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+Revision Name : project1
+Top-level Entity Name : snake_game_top
+Family : MAX 10
+Total logic elements : 424
+    Total combinational functions : 419
+    Dedicated logic registers : 188
+Total registers : 188
+Total pins : 18
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 1
+UFM blocks : 0
+ADC blocks : 0
